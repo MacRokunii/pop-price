@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#d6102a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Soda $/oz">
+<title>Soda price per ounce</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="best" id="best" aria-live="polite"></div>
+<main>
+  <div id="rows"></div>
+  <button class="add" id="add" type="button">Add another option</button>
+
+  <details class="setamt">
+    <summary>Compare cost for a set amount</summary>
+    <div>
+      <label for="need">Amount you need (totals use whole packs)</label>
+      <div class="sub">
+        <input id="need" type="number" inputmode="decimal" min="0" step="any" enterkeyhint="done" placeholder="e.g. 16" aria-label="Amount you need">
+        <select id="needUnit" aria-label="Unit"><option>L</option><option>fl oz</option><option>mL</option><option>gal</option></select>
+      </div>
+    </div>
+  </details>
+
+  <button class="clear" id="clear" type="button">Clear all</button>
+  <p class="foot">Sizes are converted to US fluid ounces. Entries are saved on this device only.</p>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

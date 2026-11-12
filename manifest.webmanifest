@@ -1,0 +1,14 @@
+{
+  "name": "Soda price per ounce",
+  "short_name": "Soda $/oz",
+  "description": "Compare soft drink prices per fluid ounce at the store.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e6e9ec",
+  "theme_color": "#d6102a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,145 @@
+/* Soda price per ounce: Diet Coke palette, mobile-first. Colors live in the variables below. */
+
+:root {
+  --bg: #e6e9ec;
+  --card: #ffffff;
+  --ink: #151515;
+  --muted: #5c646b;
+  --line: #cdd2d7;
+  --field: #f0f2f4;
+  --accent: #d6102a;
+  --accent-ink: #ffffff;
+  --tag: #d6102a;
+  --tag-ink: #ffffff;
+  --tag-edge: #c4c9ce;
+  --hot: #d6102a;
+  --good: #14804f;
+  --warn: #b45309;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111315;
+    --card: #1b1e21;
+    --ink: #f1f3f5;
+    --muted: #9aa2a9;
+    --line: #2e3338;
+    --field: #111315;
+    --accent: #d6102a;
+    --accent-ink: #ffffff;
+    --tag: #d6102a;
+    --tag-ink: #ffffff;
+    --tag-edge: #8c9298;
+    --hot: #ff5a67;
+    --good: #5fd592;
+    --warn: #f5b14c;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { -webkit-text-size-adjust: 100%; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.num { font-variant-numeric: tabular-nums; }
+
+/* Shelf-tag banner, pinned */
+.best {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--tag);
+  color: var(--tag-ink);
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 18px 12px;
+  border-bottom: 4px solid var(--tag-edge);
+}
+.best-inner { max-width: 560px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.best .big { font-size: 2.1rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.best .unit { font-size: 0.8rem; font-weight: 600; opacity: 0.75; margin-top: 2px; }
+.best .who { text-align: right; font-size: 0.95rem; line-height: 1.25; min-width: 0; }
+.best .who span { display: block; font-size: 0.8rem; opacity: 0.75; }
+
+main { max-width: 560px; margin: 0 auto; padding: 18px 14px 44px; }
+
+.row {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.row.is-best { border-left-color: var(--hot); }
+
+.top { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; }
+.top input { flex: 1; min-width: 0; font-weight: 600; }
+.remove {
+  flex: none;
+  width: 44px; height: 48px;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: end; }
+.full { grid-column: 1 / -1; }
+.sub { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 3px; }
+input, select {
+  width: 100%;
+  height: 48px;
+  font: inherit;
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+}
+select { font-size: 17px; text-overflow: ellipsis; }
+input:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 1px;
+}
+@media (prefers-color-scheme: dark) {
+  input:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible { outline-color: #ffffff; }
+}
+.money { position: relative; }
+.money span { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 18px; }
+.money input { padding-left: 26px; }
+
+.out { padding-bottom: 2px; }
+.ppo { font-size: 1.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.note { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+.is-best .note { color: var(--hot); font-weight: 700; }
+
+details { margin-top: 12px; }
+summary { cursor: pointer; font-size: 0.88rem; color: var(--muted); padding: 6px 0; }
+details > div { margin-top: 6px; }
+.extra { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); display: flex; flex-direction: column; gap: 2px; }
+.extra:empty { display: none; }
+.extra .ok { color: var(--good); font-weight: 600; }
+.extra .warn { color: var(--warn); font-weight: 600; }
+
+.add, .clear {
+  width: 100%;
+  height: 52px;
+  font: inherit;
+  font-size: 1.05rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.add { font-weight: 700; background: var(--accent); color: var(--accent-ink); border: none; }
+.clear { background: none; color: var(--ink); border: 1px solid var(--line); margin-top: 10px; }
+.setamt { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 4px 14px 14px; margin-top: 18px; }
+.setamt summary { font-size: 0.95rem; color: var(--ink); font-weight: 600; padding: 10px 0 4px; }
+.foot { color: var(--muted); font-size: 0.8rem; margin: 20px 4px 0; }
